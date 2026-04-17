@@ -67,3 +67,26 @@
 - latency 增加
 - parent-child mapping 需額外維護
 - reranker 增加推論成本
+
+## Decision Drivers
+本決策主要由以下因素驅動：
+
+1. troubleshooting 問題通常需要 symptom、cause、corrective action 與 warning 的完整鏈條
+2. small chunk 雖有利於命中，但常不足以支撐完整回答
+3. large chunk baseline 會降低 precision，增加不相關內容混入
+4. reranker 可作為 semantic gate，過濾 stage 相近但實際不適用的內容
+
+## Failure Conditions
+若出現以下情況，需重新檢討本決策：
+
+- parent expansion 導致大量不相關上下文被帶入
+- reranker latency 過高，造成整體 p95 不達標
+- answer completeness 並未明顯優於 large chunk baseline
+- parent-child mapping 維護成本過高
+
+## Revisit Triggers
+當以下條件成立時，應重新評估此方案：
+
+- larger context window 模型可穩定處理更大 chunk
+- retrieval precision 可透過其他方式提升
+- 實測顯示 reranker 對品質提升有限

@@ -75,3 +75,26 @@
 - 檢索流程較複雜
 - 需要額外設計合併與排序策略
 - 除錯成本上升
+
+## Decision Drivers
+本決策主要由以下因素驅動：
+
+1. 半導體場景中存在大量精準字串查詢，例如 alarm code、defect code、parameter name、tool model
+2. 純 vector retrieval 對縮寫與代碼召回不穩
+3. metadata constraint 在 process-stage-sensitive 場景中屬於必要條件，而不是可選增強
+4. query rewrite 雖可改善語句表達，但無法取代 BM25 對精準匹配的作用
+
+## Failure Conditions
+若出現以下情況，需重新檢討本決策：
+
+- BM25 與 metadata filter 對召回品質提升不明顯
+- Hybrid merge logic 帶來過高 latency
+- score fusion 難以穩定調參
+- 系統主要查詢型態轉向長篇自然語言描述，精準代碼查詢比例下降
+
+## Revisit Triggers
+當以下條件成立時，應重新評估是否維持 Hybrid Retrieval：
+
+- 建立了更完整的 query rewrite 與 acronym normalization pipeline
+- 有 benchmark 顯示 pure vector + reranker 已可達同等品質
+- latency target 無法在現有架構下滿足

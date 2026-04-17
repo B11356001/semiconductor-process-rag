@@ -62,3 +62,26 @@
 - 回答可能較保守
 - 在 evidence 不足時會出現較多 abstain
 - 使用者可能覺得答案不夠「聰明」
+
+## Decision Drivers
+本決策主要由以下因素驅動：
+
+1. 半導體 troubleshooting 屬高風險知識輔助場景
+2. hallucination 在本領域常表現為 cross-context misapplication，而不只是捏造內容
+3. citation-required generation 有助於提高可追溯性與人工複核效率
+4. abstain policy 能避免 evidence insufficiency 下的錯誤自信回答
+
+## Failure Conditions
+若出現以下情況，需重新檢討本決策：
+
+- abstain rate 過高，導致系統實用性明顯下降
+- 使用者大量需要 exploratory answer 而非嚴格 grounded answer
+- retrieval evidence 長期不足，使生成層過度保守
+- citation requirement 顯著降低回答可讀性
+
+## Revisit Triggers
+當以下條件成立時，應重新評估 generation boundary：
+
+- evidence quality 顯著提升，可支撐更細緻的生成策略
+- 已建立更成熟的 confidence calibration 機制
+- 使用情境從工程輔助轉向教育或探索型問答
