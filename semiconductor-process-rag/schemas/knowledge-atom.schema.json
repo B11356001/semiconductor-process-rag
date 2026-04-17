@@ -1,0 +1,55 @@
+{
+  "title": "KnowledgeAtom",
+  "type": "object",
+  "required": [
+    "atom_id",
+    "atom_type",
+    "content",
+    "source_id",
+    "parent_doc_id",
+    "process_stage",
+    "authority_level",
+    "revision",
+    "language"
+  ],
+  "properties": {
+    "atom_id": { "type": "string" },
+    "parent_doc_id": { "type": "string" },
+    "source_id": { "type": "string" },
+    "atom_type": {
+      "type": "string",
+      "enum": [
+        "symptom",
+        "defect_type",
+        "process_step",
+        "parameter",
+        "root_cause",
+        "corrective_action",
+        "warning",
+        "citation"
+      ]
+    },
+    "title": { "type": "string" },
+    "content": { "type": "string" },
+    "process_stage": { "type": "string" },
+    "tool_name": { "type": "string" },
+    "chamber": { "type": "string" },
+    "material": { "type": "string" },
+    "defect_type": { "type": "string" },
+    "parameter_name": { "type": "string" },
+    "revision": { "type": "string" },
+    "revision_date": { "type": "string", "format": "date" },
+    "authority_level": {
+      "type": "string",
+      "enum": ["high", "medium", "low"]
+    },
+    "language": { "type": "string" },
+    "aliases": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "source_section": { "type": "string" },
+    "embedding_model": { "type": "string" },
+    "embedding_dimension": { "type": "integer" }
+  }
+}
