@@ -19,7 +19,7 @@
 - Whitepaper
 
 ## Repository Link
-GitHub Repository: https://github.com/你的帳號/semiconductor-process-rag
+GitHub Repository: https://github.com/B11356001/semiconductor-process-rag
 
 ## Submission Checklist
 - [x] Architecture
@@ -29,4 +29,3 @@ GitHub Repository: https://github.com/你的帳號/semiconductor-process-rag
 - [x] Schema
 - [x] SQL
 - [x] Evaluation example
-- [ ] Collaborator invitation accepted by instructor
