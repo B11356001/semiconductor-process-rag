@@ -29,3 +29,12 @@ GitHub Repository: https://github.com/B11356001/semiconductor-process-rag
 - [x] Schema
 - [x] SQL
 - [x] Evaluation example
+
+## Additional Documentation
+- [Architecture](docs/architecture/semiconductor-rag-architecture.md)
+- [Specs](docs/specs/semiconductor-rag-spec.md)
+- [ADRs](docs/adr/)
+- [Whitepaper](docs/whitepaper/semiconductor-rag-whitepaper.md)
+- [Evaluation Pilot Results](docs/evaluation/evaluation-pilot-results.md)
+- [Evaluation Results](docs/evaluation/evaluation-results.md)
+- [Submission Proof](docs/submission/submission-proof.md)
